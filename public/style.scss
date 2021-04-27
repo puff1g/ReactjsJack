@@ -13,6 +13,13 @@ $mainsitebgclr: rgb(53, 53, 53);
 .welcometxt{
     color: $txtclr;
 }
+
+.allobbox{
+    display: flex;
+    flex-direction: row;
+    
+    
+}
 .carbox {
     padding-top: 30px;
     // background-color: $bgboxclr;

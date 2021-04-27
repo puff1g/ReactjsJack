@@ -17,7 +17,8 @@
             <%= message %>
         </h1>
     </div>
-
+    <div class="allobbox">
+        
         <% if(typeof car !='undefined' ){ %>
             <div class="carbox">
                 <p>What car is it: <%= car.MakeModel %>
@@ -30,11 +31,24 @@
             </div>
             <% } %>
 
-            <!-- <% if(typeof data != 'undefined' && data.length > 0 )  { %>
-		<% data.forEach(element => { %>
-			<h2><%= element %></h2>
-		<% });  %>
-	<% } %> -->
+                <% if(typeof car1 !='undefined' ){ %>
+                    <div class="carbox">
+                        <p>What car is it: <%= car1.MakeModel %>
+                        </p>
+                        <p>Year car is from: <%= car1.year %>
+                        </p>
+                        <p>Is Car Nice: <%= car1.nicecar %>
+                        </p>
+                        <img src="<%=  car1.imageofcar %>" alt="no work">
+                    </div>
+                    <% } %>
+                
+    </div>
+    <!-- <% if(typeof data != 'undefined' && data.length > 0 )  { %>
+                        <% data.forEach(element => { %>
+                            <h2><%= element %></h2>
+                            <% });  %>
+                            <% } %> -->
 </body>
 
 </html>
