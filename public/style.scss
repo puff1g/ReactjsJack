@@ -1,18 +1,34 @@
-$mainclr: #fff;
-
+$mainclr: white;
+$txtclr: white;
+$bgboxclr: rgb(54, 54, 54);
+$mainsitebgclr: rgb(53, 53, 53);
 * {
     padding: 0;
     margin: 0;
     left: 0;
     top: 0;
-    background-color: rgb(53, 53, 53);
+    background-color: $mainsitebgclr;
     font-family: Georgia, "Times New Roman", Times, serif;
 }
-
+.welcometxt{
+    color: $txtclr;
+}
 .carbox {
-    color: white;
+    padding-top: 30px;
+    // background-color: $bgboxclr;
+    color: $txtclr;
+    width: 50%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    p {
+        // background-color: $bgboxclr;
+    }
 }
 
+
 .carbox img {
-    max-width: 25%;
+    max-width: 50%;
 }
