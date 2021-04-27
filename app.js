@@ -17,6 +17,7 @@ app.get('/', (req, res)=>{
         MakeModel: 'Bmw E60 M5',
         year: 2010,
         nicecar: true,
+        imageofcar: "../images/bmwrrr.jpg"
     };
 	res.render('index', {
         message: 'Hello Wrld!',

@@ -10,3 +10,7 @@
 .carbox{
     color: white;
 }
+
+.carbox img{
+    max-width: 50%;
+}
