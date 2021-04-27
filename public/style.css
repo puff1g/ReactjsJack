@@ -1,16 +1,17 @@
-*{
-    padding: 0;
-    margin: 0;
-    left: 0;
-    top: 0;
-    background-color: rgb(53, 53, 53);
-    font-family: Georgia, 'Times New Roman', Times, serif;
+* {
+  padding: 0;
+  margin: 0;
+  left: 0;
+  top: 0;
+  background-color: #353535;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 
-.carbox{
-    color: white;
+.carbox {
+  color: white;
 }
 
-.carbox img{
-    max-width: 50%;
+.carbox img {
+  max-width: 25%;
 }
+/*# sourceMappingURL=style.css.map */
