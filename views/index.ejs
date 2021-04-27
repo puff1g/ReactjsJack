@@ -11,42 +11,59 @@
 </head>
 
 <body>
+
+    <%- include('nav.ejs') %>
+    
     <div class="welcometxt">
 
         <h1>
             <%= message %>
         </h1>
     </div>
-    <div class="allobbox">
+<div class="contentdb">
+
+    <% if(typeof car !='undefined' ){ %>
+        <div class="carbox">
+            <p>What car is it: <%= car.MakeModel %>
+            </p>
+            <p>Year car is from: <%= car.year %>
+            </p>
+            <p>Is Car Nice: <%= car.nicecar %>
+            </p>
+            <img src="<%=  car.imageofcar %>" alt="no work">
+        </div>
+        <% } %>
         
-        <% if(typeof car !='undefined' ){ %>
+        <% if(typeof car0 !='undefined' ){ %>
             <div class="carbox">
-                <p>What car is it: <%= car.MakeModel %>
+                <p>What car is it: <%= car0.MakeModel %>
                 </p>
-                <p>Year car is from: <%= car.year %>
+                <p>Year car is from: <%= car0.year %>
                 </p>
-                <p>Is Car Nice: <%= car.nicecar %>
+                <p>Is Car Nice: <%= car0.nicecar %>
                 </p>
-                <img src="<%=  car.imageofcar %>" alt="no work">
+                <img src="<%=  car0.imageofcar %>" alt="no work">
             </div>
             <% } %>
-
-                <% if(typeof car1 !='undefined' ){ %>
-                    <div class="carbox">
-                        <p>What car is it: <%= car1.MakeModel %>
-                        </p>
-                        <p>Year car is from: <%= car1.year %>
-                        </p>
-                        <p>Is Car Nice: <%= car1.nicecar %>
-                        </p>
-                        <img src="<%=  car1.imageofcar %>" alt="no work">
-                    </div>
-                    <% } %>
+            
+            <% if(typeof car1 !='undefined' ){ %>
+                <div class="carbox">
+                    <p>What car is it: <%= car1.MakeModel %>
+                    </p>
+                    <p>Year car is from: <%= car1.year %>
+                    </p>
+                    <p>Is Car Nice: <%= car1.nicecar %>
+                    </p>
+                    <img src="<%=  car1.imageofcar %>" alt="no work">
+                </div>
+                <% } %>
+            </div>
                 
-    </div>
-    <!-- <% if(typeof data != 'undefined' && data.length > 0 )  { %>
-                        <% data.forEach(element => { %>
-                            <h2><%= element %></h2>
+                
+                
+                <!-- <% if(typeof data != 'undefined' && data.length > 0 )  { %>
+                    <% data.forEach(element => { %>
+                        <h2><%= element %></h2>
                             <% });  %>
                             <% } %> -->
 </body>

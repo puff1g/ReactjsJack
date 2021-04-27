@@ -19,12 +19,19 @@ app.get('/', (req, res)=>{
         nicecar: true,
         imageofcar: "../images/bmwrrr.jpg"
     };
+    let car0 = {
+        MakeModel: 'Bmw E30 M3',
+        year: 1996,
+        nicecar: true,
+        imageofcar: "../images/e30.jpg"
+    };
     let car1 = {
         MakeModel: 'Bmw E92 M3',
         year: 2012,
         nicecar: true,
         imageofcar: "../images/bmww.jpg"
     };
+    
 	res.render('index', {
         message: 'Hello Wrld!',
         data: [1,2,3,4],
@@ -32,6 +39,7 @@ app.get('/', (req, res)=>{
         Make: "Bmw",
         nice: true,
         car: car,
+        car0: car0,
         car1: car1,
     });
 });
