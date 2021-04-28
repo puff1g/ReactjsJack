@@ -21,14 +21,14 @@ module.exports = (app)=>{
 		});
 	});
 	
-	app.get('/cars/:carId', (req, res)=>{
-		res.render('cars');
-	});
+	app.get('/cars/_id', function (req, res) {
+		res.send('GET request to the homepage')
+	})
 	
 	
 	app.post('/cars/:carId', (req, res)=>{
 		res.render('cars',{
-			title : req.body.title
+			title : req.body.Brand
 		});
 	});
 
