@@ -2,16 +2,16 @@
 	
 <%= locals.message %>
 
-<p><a href="/books/x">Forfatternavn</a></p>
+<p><a href="/cars/x">Forfatternavn</a></p>
 <p>antal side: 123</p>
 <p>Genre: drama</p>
 <p>Læst?</p>
 
 
-<% if(locals.book){ %>
+<% if(locals.car){ %>
     <div>
         <h2>Dette er en bog</h2>
-        <%=  book.coverImageName %>
-        <%=  book.title %>
+        <%=  car.coverImageName %>
+        <%=  car.Brand %>
     </div>
 <% } %>

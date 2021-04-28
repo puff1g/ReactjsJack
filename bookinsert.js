@@ -1,16 +1,16 @@
-db.books.insert([{
-	title: 'Mr. Many',
-	author: 'John Doe',
-	pages: 114,
-	read: false
+db.cars.insert([{
+	Brand: 'BMW',
+	Model: '335i',
+	year: 2012,
+	driving: true
 }, {
-	title: 'Mr.BeanBag',
-	author: 'Jen Jan',
-	pages: 234,
-	read: true
+	Brand: 'Mercedes',
+	Model: 'A45 AMG',
+	year: 2015,
+	driving: true
 }, {
-	title: 'Flemming Johnsen selvprotræt',
-	author: 'Pablo Escobar',
-	pages: 30,
-	read: false
+	Brand: 'Toyota',
+	Model: 'Chaser JZX100',
+	year: 1999,
+	driving: false
 }]);

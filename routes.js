@@ -1,34 +1,33 @@
-const Book = require('./model/bookModel');
+const Car = require('./model/carModel');
 
 module.exports = (app)=>{
 
 	app.get('/',  async (req, res) => {
 
-		let books = await Book.find();
+		let cars = await Car.find();
 
-		let book = {
-			title: 'test',
-			author: 'derp',
-			pages: 123,
-			genre: 'drama',
-			read: true,
+		let car = {
+			Brand: 'test',
+			Model: 'derp',
+			year: 123,
+			driving: true,
 		};
 		res.render('index', {
 			title: 'Hello Wrld - Programming!',
-			message: 'Hello World',
+			message: 'Hello Wrld',
 			data: [1, 2, 3, 4, 5, 6],
-			book,
-			books
+			car,
+			cars
 		});
 	});
 	
-	app.get('/books/:bookId', (req, res)=>{
-		res.render('books');
+	app.get('/cars/:carId', (req, res)=>{
+		res.render('cars');
 	});
 	
 	
-	app.post('/books/:bookId', (req, res)=>{
-		res.render('books',{
+	app.post('/cars/:carId', (req, res)=>{
+		res.render('cars',{
 			title : req.body.title
 		});
 	});
