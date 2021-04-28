@@ -1,0 +1,11 @@
+ej<%- include('template/top.ejs') %>
+
+<form method="post">
+    <p>Title:</p>
+    <input type="text" name="title" value="<%= locals.title %>">
+    <button>Send</button>
+</form>
+
+<%= locals.title %>
+
+<%- include('template/bottom.ejs') %>

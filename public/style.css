@@ -5,6 +5,12 @@
   top: 0;
   background-color: #353535;
   font-family: Georgia, "Times New Roman", Times, serif;
+  background-color: #353535;
+  color: white;
+}
+
+.spacing {
+  margin-top: 50px;
 }
 
 nav a {

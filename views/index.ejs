@@ -13,59 +13,23 @@
 <body>
 
     <%- include('nav.ejs') %>
+    <!-- <%- include('header.ejs') %> -->
     
-    <div class="welcometxt">
+    
+		<div class="spacing">
 
-        <h1>
-            <%= message %>
-        </h1>
-    </div>
-<div class="contentdb">
+		</div>
+	<% if(locals.books)  { %>
+		<h1>All books</h1>
+		<br>
+		<% books.forEach(book => { %>
+			<br>
+			<h3>
+				<a href="/book/<%= book.id %>"><%= book.title %></a></h3>
+		<% });  %>
+	<% } %>
 
-    <% if(typeof car !='undefined' ){ %>
-        <div class="carbox">
-            <p>What car is it: <%= car.MakeModel %>
-            </p>
-            <p>Year car is from: <%= car.year %>
-            </p>
-            <p>Is Car Nice: <%= car.nicecar %>
-            </p>
-            <img src="<%=  car.imageofcar %>" alt="no work">
-        </div>
-        <% } %>
-        
-        <% if(typeof car0 !='undefined' ){ %>
-            <div class="carbox">
-                <p>What car is it: <%= car0.MakeModel %>
-                </p>
-                <p>Year car is from: <%= car0.year %>
-                </p>
-                <p>Is Car Nice: <%= car0.nicecar %>
-                </p>
-                <img src="<%=  car0.imageofcar %>" alt="no work">
-            </div>
-            <% } %>
-            
-            <% if(typeof car1 !='undefined' ){ %>
-                <div class="carbox">
-                    <p>What car is it: <%= car1.MakeModel %>
-                    </p>
-                    <p>Year car is from: <%= car1.year %>
-                    </p>
-                    <p>Is Car Nice: <%= car1.nicecar %>
-                    </p>
-                    <img src="<%=  car1.imageofcar %>" alt="no work">
-                </div>
-                <% } %>
-            </div>
-                
-                
-                
-                <!-- <% if(typeof data != 'undefined' && data.length > 0 )  { %>
-                    <% data.forEach(element => { %>
-                        <h2><%= element %></h2>
-                            <% });  %>
-                            <% } %> -->
 </body>
 
 </html>
+

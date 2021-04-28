@@ -9,6 +9,11 @@ $mainsitebgclr: rgb(53, 53, 53);
     top: 0;
     background-color: $mainsitebgclr;
     font-family: Georgia, "Times New Roman", Times, serif;
+    background-color: $mainsitebgclr;
+    color: $txtclr;
+}
+.spacing{
+    margin-top: 50px;
 }
 nav a{
     text-decoration: none;
