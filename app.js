@@ -6,6 +6,10 @@ const logger = require('morgan');
 app.use(logger('dev',{
 	skip: req => !req.url.endsWith('.html') && req.url.indexOf('.') > -1
 }));
+// const bodyParser = require('body-parser'); Not used atm
+
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }));
 
 app.set('view engine', 'ejs');
 app.set('views','./views');
@@ -44,7 +48,15 @@ app.get('/', (req, res)=>{
     });
 });
 
+app.get('/cars/:carId', (req, res) => {
+    res.send(req.params.carId);
+});
 
+app.post('/cars/:carId', (req, res) => {
+    res.render('cars',{
+        MakeModel : req.body.MakeModel
+    })
+});
 
 app.listen(port,()=>{
 	console.log(`Server running... http://localhost:${port}`);
