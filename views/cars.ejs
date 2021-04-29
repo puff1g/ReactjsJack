@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>Document</title>
+</head>
+<body>
+    
+    <form method="post">
+        <p>Brand:</p>
+        <input type="text" name="Brand" value="<%= locals.Brand %>">
+    
+        <p>Model:</p>
+        <input type="text" name="Model" value="<%= locals.Model %>">
+    
+        <p>year:</p>
+        <input type="number" name="year" value="<%= locals.year %>">
+        <p>driving??:</p>
+        <input type="checkbox" name="driving" value="<%= locals.driving %>">
+    
+    
+        <button>Send</button>
+    </form>
+    <p> <%= locals.message %> </p>
+</body>
+</html>
+

@@ -9,6 +9,14 @@
   color: white;
 }
 
+form {
+  padding: 5px;
+}
+
+form input {
+  padding: 10px;
+}
+
 .spacing {
   margin-top: 50px;
 }

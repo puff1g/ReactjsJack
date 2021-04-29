@@ -21,15 +21,48 @@ module.exports = (app)=>{
 		});
 	});
 	
-	app.get('/cars/_id', function (req, res) {
-		res.send('GET request to the homepage')
+	app.get('/cars', (req, res) => {
+		res.render('cars');
 	})
 	
 	
-	app.post('/cars/:carId', (req, res)=>{
-		res.render('cars',{
-			title : req.body.Brand
-		});
+	app.post('/cars', (req, res)=>{
+
+		let car = new Car(req.body);
+
+		let message = [];
+		if(car.Brand == ''){
+			message.push('Missing Brand!');
+		}
+		if(car.Model == ''){
+			message.push('Missing Model!!');
+		}
+		if(car.year == ''){
+			message.push('Missing year!!!');
+		}
+		/* if(car.driving == ''){
+			message.push('Missing driving record!!!!');
+		} */
+		/* if(isNaN(req.body.year)){
+			message.push('Missing year!!!')
+		} */
+
+		car.read = (req.body.read == "on" ? true : false);
+
+		if(message.length == 0) {
+			car.save();
+			res.redirect('/');
+		} else{
+			
+			res.render('cars',{
+				Brand : req.body.Brand,
+				Model: req.body.Model,
+				year : req.body.year,
+				driving : req.body.driving,
+				message : message.join(', '),
+			}); 
+		}
+		
 	});
 
 };
