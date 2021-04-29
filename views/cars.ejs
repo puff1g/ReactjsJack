@@ -5,26 +5,58 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/style.css">
-    <title>Document</title>
 </head>
 <body>
+    <%- include('nav.ejs') %>
     
-    <form method="post">
-        <p>Brand:</p>
-        <input type="text" name="Brand" value="<%= locals.Brand %>">
-    
-        <p>Model:</p>
-        <input type="text" name="Model" value="<%= locals.Model %>">
-    
-        <p>year:</p>
-        <input type="number" name="year" value="<%= locals.year %>">
-        <p>driving??:</p>
-        <input type="checkbox" name="driving" value="<%= locals.driving %>">
-    
-    
-        <button>Send</button>
-    </form>
-    <p> <%= locals.message %> </p>
+	<form method="post">
+		<div>
+			<label>Model:</label>
+			<input type="text" name="Model" value="<%= locals.car ? locals.car.Model : '' %>">
+		</div>
+		<div>
+			<label>Brand:</label>
+			<input type="text" name="Brand" value="<%= locals.car ? locals.car.Brand : '' %>">
+		</div>
+		<div>
+			<label>Year:</label>
+			<input type="text" name="year" value="<%= locals.car ? locals.car.year : '' %>">
+		<div>
+		<div>
+			<label>Driving?</label>
+			<input type="checkbox" name="driving" <%= locals.car && locals.car.driving ? 'checked' : ''%>>
+		</div>
+		<button class="btn">Gem</button><a href="/cars" class="btn">Annuller</a>
+
+		<span class="error"><%= locals.message %></span>
+	</form>
+	
+
+
+	<% if(locals.cars)  { %>
+		<h1>All cars</h1>
+		<table>
+			<tr>
+				<th>Action:</th>
+				<th>Model</th>
+				<th>Brand</th>
+				<th>year</th>
+				<th>driving</th>
+			</tr>
+		<% cars.forEach(car => { %>
+				<tr>
+					<td>
+						<a href="/cars/edit/<%= car.id %>">[FIX]</a>
+						<a href="/cars/delete/<%= car.id %>" onclick="return confirm('Sure about ur choice?🤔🤔🤔')">[Delete]</a>
+					</td>
+					<td><%= car.Model %></td>
+					<td><%= car.Brand %></td>
+					<td><%= car.year %></td>
+					<td><%= car.driving ? 'yes' : 'no' %></td>
+				</tr>
+			<% });  %>
+		</table>	
+	<% } %>
 </body>
 </html>
 

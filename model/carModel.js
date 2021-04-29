@@ -6,6 +6,8 @@ const Car = new Schema({
 	Model: {type:String},
 	year: {type:Number},
 	driving: {type:Boolean}
+}, {
+	versionKey: false,
 });
 
 module.exports = mongoose.model("Car", Car, 'cars');

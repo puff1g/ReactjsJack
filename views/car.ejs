@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CarById</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <%- include('nav.ejs') %>
+
+    <% if(locals.cars)  { %>
+		<h1>All cars</h1>
+		<br>
+		<% cars.forEach(car => { %>
+			<br>
+			<h3>
+				<a href="/car/<%= car.id %>"><%= car.Brand%> <%= car.Model%></a></h3>
+		<% });  %>
+
+</body>
+</html>
