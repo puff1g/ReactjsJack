@@ -1,5 +1,12 @@
 const Car = require('./model/carModel');
 
+async function getBooks(){
+	return await Book
+	.find()
+	.collation({locale:'da'})
+	.sort({'title':'asc'});
+}
+
 module.exports = (app)=>{
 
 	app.get('/',  async (req, res) => {
