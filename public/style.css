@@ -70,4 +70,16 @@ button {
 .carbox img {
   max-width: 50%;
 }
+
+.imagee {
+  position: absolute;
+  left: 50%;
+  top: 10%;
+}
+
+.allcars {
+  position: absolute;
+  top: 5%;
+  left: 25%;
+}
 /*# sourceMappingURL=style.css.map */

@@ -5,7 +5,8 @@ const Car = new Schema({
 	Brand: {type:String},
 	Model: {type:String},
 	year: {type:Number},
-	driving: {type:Boolean}
+	driving: {type:Boolean},
+	imageName: {type:String}
 }, {
 	versionKey: false,
 });

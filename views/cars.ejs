@@ -1,62 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/style.css">
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/style.css">
 </head>
+
 <body>
-    <%- include('nav.ejs') %>
-    
-	<form method="post">
-		<div>
-			<label>Model:</label>
-			<input type="text" name="Model" value="<%= locals.car ? locals.car.Model : '' %>">
-		</div>
-		<div>
-			<label>Brand:</label>
-			<input type="text" name="Brand" value="<%= locals.car ? locals.car.Brand : '' %>">
-		</div>
-		<div>
-			<label>Year:</label>
-			<input type="text" name="year" value="<%= locals.car ? locals.car.year : '' %>">
-		<div>
-		<div>
-			<label>Driving?</label>
-			<input type="checkbox" name="driving" <%= locals.car && locals.car.driving ? 'checked' : ''%>>
-		</div>
-		<button class="btn">Gem</button><a href="/cars" class="btn">Annuller</a>
+	<%- include('nav.ejs') %>
 
-		<span class="error"><%= locals.message %></span>
-	</form>
-	
+		<form method="post" enctype="multipart/form-data">
+			<div>
+				<label>Model:</label>
+				<input type="text" name="Model" value="<%= locals.car ? locals.car.Model : '' %>">
+			</div>
+			<div>
+				<label>Brand:</label>
+				<input type="text" name="Brand" value="<%= locals.car ? locals.car.Brand : '' %>">
+			</div>
+			<div>
+				<label>Year:</label>
+				<input type="text" name="year" value="<%= locals.car ? locals.car.year : '' %>">
+				<div>
+					<div>
+						<label>Driving?</label>
+						<input type="checkbox" name="driving" <%=locals.car && locals.car.driving ? 'checked' : '' %>>
+					</div>
+					<div>
+
+						<input type="file" name="image">
+						<label>Image:</label>
+					</div>
+					<button class="btn">Gem</button><a href="/cars" class="btn">Annuller</a>
+					<div class="imagee">
+						<%- locals.car !=undefined && locals.car.imageName !='' ? `<img
+							src="/images/${locals.car.imageName}" style="width:600px;">` : '' %>
+					</div>
+
+					<span class="error">
+						<%= locals.message %>
+					</span>
+		</form>
 
 
-	<% if(locals.cars)  { %>
-		<h1>All cars</h1>
-		<table>
-			<tr>
-				<th>Action:</th>
-				<th>Model</th>
-				<th>Brand</th>
-				<th>year</th>
-				<th>driving</th>
-			</tr>
-		<% cars.forEach(car => { %>
-				<tr>
-					<td>
-						<a href="/cars/edit/<%= car.id %>">[FIX]</a>
-						<a href="/cars/delete/<%= car.id %>" onclick="return confirm('Sure about ur choice?🤔🤔🤔')">[Delete]</a>
-					</td>
-					<td><%= car.Model %></td>
-					<td><%= car.Brand %></td>
-					<td><%= car.year %></td>
-					<td><%= car.driving ? 'yes' : 'no' %></td>
-				</tr>
-			<% });  %>
-		</table>	
-	<% } %>
+
+		<% if(locals.cars) { %>
+			<div class="allcars">
+				<h1>All cars</h1>
+				<table>
+					<tr>
+						<th>Action:</th>
+						<th>Model</th>
+						<th>Brand</th>
+						<th>year</th>
+						<th>driving</th>
+					</tr>
+					<% cars.forEach(car=> { %>
+						<tr>
+							<td>
+								<a href="/cars/edit/<%= car.id %>">[FIX]</a>
+								<a href="/cars/delete/<%= car.id %>"
+									onclick="return confirm('Sure about ur choice?🤔🤔🤔')">[Delete]</a>
+							</td>
+							<td>
+								<%= car.Model %>
+							</td>
+							<td>
+								<%= car.Brand %>
+							</td>
+							<td>
+								<%= car.year %>
+							</td>
+							<td>
+								<%= car.driving ? 'yes' : 'no' %>
+							</td>
+						</tr>
+						<% }); %>
+				</table>
+				<% } %>
+			</div>
 </body>
-</html>
 
+</html>

@@ -1,7 +1,8 @@
 const Car = require('./model/carModel');
+const fs = require('fs');
 
-async function getBooks(){
-	return await Book
+async function getcars(){
+	return await car
 	.find()
 	.collation({locale:'da'})
 	.sort({'title':'asc'});
@@ -68,6 +69,12 @@ module.exports = (app)=>{
 		car.driving = (req.body.driving == "on" ? true : false);
 
 		if (message.length == 0) {
+
+			if (req.files != undefined && req.files.image != undefined) {
+				await req.files.image.mv(`./public/images/${req.files.image.name}`)
+				car.imageName = req.files.image.name;
+			}
+
 			await car.save();
 			res.redirect('/cars');
 		} else {
@@ -106,6 +113,7 @@ module.exports = (app)=>{
 	/* BE GONE CARRRR */
 	app.get('/cars/delete/:id', async (req, res) => {
 		await Car.findByIdAndDelete(req.params.id);
+		/* Slet image ikke lavet! */
 		res.redirect('/cars');
 	});
 
